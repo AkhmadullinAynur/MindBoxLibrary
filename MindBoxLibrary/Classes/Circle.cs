@@ -9,6 +9,14 @@ namespace MindBoxLibrary
 
         public Circle(double radius)
         {
+            if (radius <= 0)
+            {
+                throw new ArgumentException("The radius of the circle cannot be less than 0!");
+            }
+            if (Double.IsNaN(radius))
+            {
+                throw new ArgumentException("The radius of the circle must be a number!");
+            }
             _radius = radius;
         }
 

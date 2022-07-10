@@ -1,10 +1,11 @@
 using MindBoxLibrary;
+using MindBoxLibraryTests.Interfaces;
 using System;
 using Xunit;
 
 namespace MindBoxLibraryTests
 {
-    public class TestCircleArea
+    public class TestCircleArea: IAreaTest
     {
         [Fact]
         public void IsAreaCorrect()
@@ -13,6 +14,12 @@ namespace MindBoxLibraryTests
             double expected = Math.PI;
             double actual = SurfaceArea.GetCircleArea(r);
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void IsInputValid()
+        {
+            Assert.Throws<ArgumentException>(() => SurfaceArea.GetCircleArea(0));
         }
     }
 }
